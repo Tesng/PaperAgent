@@ -13,6 +13,7 @@ PaperAgent/
 ├── AGENT.md                 ← 本文件（agent 的工作規則）
 ├── CLAUDE.md                ← 指向本文件，讓 Claude Code 自動讀取
 ├── README.md                ← 給人看的使用說明
+├── .nojekyll               ← 讓 GitHub Pages 不用 Jekyll 轉換 .md（不能刪）
 ├── index.html               ← 靜態網站入口（不要改，除非使用者要求）
 ├── assets/
 │   ├── css/style.css        ← 網站樣式
@@ -245,6 +246,38 @@ python3 scripts/paper_tools.py index          # 重建 data/papers.json
 
 - 不要修改、改名、移動或刪除 `papers/` 裡的 PDF。
 - 不要手改 `data/papers.json`，一律用 `index` 產生。
-- 不要改 `index.html`、`assets/css`、`assets/js`，除非使用者要求改網站。
+- 不要改 `index.html`、`assets/css`、`assets/js`，除非使用者要求改網站；要改時遵守 §10。
 - 不要在講義中放論文整頁截圖或大段原文；圖片只截需要的區塊。
 - `work/` 是暫存區，不要在講義裡引用其中的檔案。
+
+---
+
+## 10. 網站擴充規範
+
+使用者要求新增頁面或網站功能時，遵守以下規則，讓網站保持一致、不會弄壞既有講義。
+
+### 路由慣例
+- 網站是 hash 路由的單頁應用。新頁面一律用 `#/<名稱>`，參數放在 query：例如 `#/graph`、`#/compare?a=<slug>&b=<slug>`。
+- 在 `assets/js/app.js` 的 `route()` 裡註冊新路由，並另寫一個 `renderXxx()` 函式負責該頁；不要把新頁面的邏輯塞進 `renderHome()` 或 `renderPaper()`。
+- 新頁面需要入口時，在頂部列或首頁加連結，不要改動既有講義頁的版面結構。
+
+### 資料來源
+- 新頁面只能讀 `data/papers.json` 和 `notes/*.md`，不要讀 `work/`，也不要在前端寫死論文資料。
+- 需要新的 frontmatter 欄位時，必須**同步修改**：`templates/note-template.md`、`scripts/paper_tools.py` 的 `index`（輸出到 `papers.json`）與 `check`（驗證）、本文件 §8 的欄位表。改完後補齊舊講義的新欄位，再跑一次 `check` 與 `index`。
+- 依章節內容做功能（例如並排比較「核心想法」）時，以 §4 的固定章節標題切分 Markdown，不要依賴章節內的排版細節。
+
+### 樣式
+- 沿用 `assets/css/style.css` 在 `:root` 定義的變數（`--bg`、`--surface`、`--ink`、`--accent`、`--s0`～`--s5` 等），深色模式已經設定好，**不要寫死顏色**。
+- 不要另外引入外部套件或字型；目前只用 marked 與 KaTeX（CDN 固定版本）。真的需要新套件時，先問使用者。
+- 新增的 CSS 加在 `style.css` 對應區塊，並確認手機寬度（≤ 600px）不會出現水平捲動。
+
+### 驗證步驟
+1. 在專案根目錄執行 `python3 -m http.server 8000`，打開 http://localhost:8000。
+2. 檢查新頁面與既有頁面（首頁、任一講義頁）：桌面寬度、手機寬度、深色模式都正常。
+3. 瀏覽器 console 沒有錯誤；圖片、公式、內部連結都能載入。
+4. 跑 `python3 scripts/paper_tools.py check`，確認沒有 ❌。
+
+### 文件同步
+- 每加一個功能，更新 `README.md` 的「網站功能」一節。
+- 有新的使用方式或指令時，更新本文件 §2 的觸發指令表；動到資料夾結構時，更新 §1。
+
