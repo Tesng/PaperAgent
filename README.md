@@ -38,6 +38,8 @@
 2. Settings → Pages → Source 選 **Deploy from a branch**，Branch 選 `main`、資料夾 `/ (root)`。
 3. 幾分鐘後即可在 `https://<帳號>.github.io/<repo>/` 瀏覽。
 
+> 根目錄的 `.nojekyll` 不能刪：GitHub Pages 預設會用 Jekyll 把有 frontmatter 的 `.md` 轉成 HTML，網站就讀不到講義原檔。
+
 > 公開網站時要注意論文 PDF 與截圖的版權。不想上傳 PDF 的話，取消 `.gitignore` 裡 `papers/*.pdf` 那行的註解。
 
 ## 資料夾
