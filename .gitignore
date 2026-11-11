@@ -1,0 +1,10 @@
+# 暫存區（全文、頁面預覽、候選圖）
+work/
+
+# 系統檔
+.DS_Store
+__pycache__/
+
+# 若網站要公開但不想把論文 PDF 上傳到 GitHub，取消下一行註解。
+# （網站上的「PDF」按鈕會失效，可改用 arXiv 連結）
+# papers/*.pdf

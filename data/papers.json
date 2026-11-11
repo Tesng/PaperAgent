@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-11-11T07:17:19",
+  "count": 2,
+  "tags": {
+    "cross-embodiment": 2,
+    "VLA": 1,
+    "flow matching": 1,
+    "抓取生成": 1,
+    "機器人操作": 1,
+    "開源": 1,
+    "靈巧手": 1
+  },
+  "papers": [
+    {
+      "slug": "2026-dexgraspflow",
+      "title": "DexGraspFlow: Topology-Aware SE(3) Flow Matching for Cross-Embodiment Dexterous Grasp Generation",
+      "short": "DexGraspFlow",
+      "authors": [
+        "Bin Zhou",
+        "Boyu Ma",
+        "Xinyu Zhou",
+        "Jiahua Dong",
+        "Chuhao Zhou",
+        "Yizhou Liu",
+        "et al."
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "arxiv": "2610.26962",
+      "code": "",
+      "project": "https://zhoubin818.github.io/DexGraspFlow/",
+      "pdf": "papers/2610.26962v1.pdf",
+      "tags": [
+        "靈巧手",
+        "抓取生成",
+        "cross-embodiment",
+        "flow matching"
+      ],
+      "one_liner": "把抓取拆成各 link 的 SE(3) 位姿用 flow matching 生成，並以運動學樹距離作注意力偏置",
+      "builds_on": [
+        "TRO-Grasp (2026)",
+        "DRO-Grasp (2025)",
+        "GraspGraphNet (2026)",
+        "Riemannian Flow Matching (2024)"
+      ],
+      "superseded_by": [],
+      "added": "2026-11-11",
+      "status": "done",
+      "incomplete": false,
+      "note": "notes/2026-dexgraspflow.md",
+      "cover": "assets/figures/2026-dexgraspflow/arch.png",
+      "chars": 9997
+    },
+    {
+      "slug": "2024-openvla",
+      "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+      "short": "OpenVLA",
+      "authors": [
+        "Moo Jin Kim",
+        "Karl Pertsch",
+        "Siddharth Karamcheti",
+        "Ted Xiao",
+        "Ashwin Balakrishna",
+        "Suraj Nair",
+        "et al."
+      ],
+      "year": 2024,
+      "venue": "CoRL 2024",
+      "arxiv": "2406.09246",
+      "code": "https://github.com/openvla/openvla",
+      "project": "https://openvla.github.io",
+      "pdf": "papers/2406.09246v3.pdf",
+      "tags": [
+        "VLA",
+        "cross-embodiment",
+        "開源",
+        "機器人操作"
+      ],
+      "one_liner": "把機器人動作離散成 token，直接微調開源 VLM（Prismatic 7B）於 97 萬條真實示範",
+      "builds_on": [
+        "RT-2 (2023)",
+        "RT-2-X / Open X-Embodiment (2023)",
+        "Prismatic VLMs (2024)",
+        "Octo (2024)"
+      ],
+      "superseded_by": [
+        "OpenVLA-OFT (2025)",
+        "π0 (2024)",
+        "π0-FAST (2025)"
+      ],
+      "added": "2026-11-11",
+      "status": "done",
+      "incomplete": false,
+      "note": "notes/2024-openvla.md",
+      "cover": "assets/figures/2024-openvla/arch.png",
+      "chars": 7476
+    }
+  ]
+}

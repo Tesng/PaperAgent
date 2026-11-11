@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paper 講義</title>
+  <meta name="description" content="論文講義：問題、核心想法、資料流、訓練方式、證據與脈絡">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    try { var t = localStorage.getItem('paper-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="回到論文列表">
+      <span class="brand-mark">P</span>
+      <span class="brand-text">Paper 講義</span>
+    </a>
+    <div class="search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="search" type="search" placeholder="搜尋標題、標籤、內文" autocomplete="off" aria-label="搜尋論文">
+      <kbd>/</kbd>
+    </div>
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="切換深淺色">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 3.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+    </button>
+  </header>
+
+  <main id="app" aria-live="polite"></main>
+
+  <div id="lightbox" hidden role="dialog" aria-label="放大圖片"><img alt=""></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
